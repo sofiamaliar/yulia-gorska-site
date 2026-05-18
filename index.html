@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dr.gorska — курс по снижению веса</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── CSS Variables ─────────────────────────────────────── */
+    :root {
+      --color-primary: #53161D;
+      --color-deep:    #30050E;
+      --color-black:   #1E100F;
+      --color-cream:   #FFFBF0;
+      --color-warm:    #AA9F95;
+      --color-light:   #F5F0E8;
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'Montserrat', sans-serif;
+    }
+
+    /* ─── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--color-deep);
+      color: var(--color-cream);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Hero ───────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 24px;
+      position: relative;
+    }
+
+    /* thin ornamental top line */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 40px;
+      background: var(--color-primary);
+    }
+
+    .hero__eyebrow {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-warm);
+      margin-bottom: 40px;
+    }
+
+    .hero__title {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 1.05;
+      color: var(--color-cream);
+      max-width: 900px;
+      margin-bottom: 32px;
+    }
+
+    .hero__title em {
+      color: var(--color-primary);
+      font-style: italic;
+    }
+
+    .hero__subtitle {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      color: var(--color-warm);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 56px;
+      letter-spacing: 0.02em;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--color-cream);
+      border: 1px solid var(--color-primary);
+      padding: 16px 48px;
+      border-radius: 0;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--color-primary);
+      color: var(--color-cream);
+    }
+
+    /* thin ornamental bottom line */
+    .hero__divider {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-warm);
+    }
+
+    .hero__divider span {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero__divider::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 32px;
+      background: var(--color-warm);
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
+  <section class="hero">
+
+    <p class="hero__eyebrow">Юлия Горская — специалист эстетической медицины</p>
+
+    <h1 class="hero__title">
+      Похудеть умно.<br />
+      <em>Без изнурения.</em>
+    </h1>
+
+    <p class="hero__subtitle">
+      Онлайн-курс о том, как снижать вес, понимая своё тело —<br />
+      питание, процедуры и уход за кожей как единая система.
+    </p>
+
+    <a href="#pricing" class="btn">Узнать о курсе</a>
+
+    <div class="hero__divider">
+      <span>Scroll</span>
+    </div>
+
+  </section>
+
+</body>
+</html>
