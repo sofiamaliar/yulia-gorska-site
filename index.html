@@ -62,6 +62,39 @@
   .cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.28)}
   .cta-note{display:block;font-size:13px;color:#e9d3c9;margin-top:12px}
 
+  /* --- shimmer / переливание кнопок --- */
+  .cta{position:relative;overflow:hidden;
+    background:linear-gradient(100deg,#c69a6d 0%,#e9cc9e 45%,#c69a6d 72%);
+    background-size:220% 100%;animation:sheen 4.5s linear infinite;}
+  .cta .lbl{position:relative;z-index:2}
+  .cta::before{content:"";position:absolute;top:0;left:-160%;width:70%;height:100%;z-index:1;
+    background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.7) 50%,transparent 100%);
+    transform:skewX(-20deg);animation:shine 3.4s ease-in-out infinite;}
+  @keyframes sheen{0%{background-position:0 0}100%{background-position:220% 0}}
+  @keyframes shine{0%{left:-160%}60%{left:160%}100%{left:160%}}
+  @media(prefers-reduced-motion:reduce){.cta{animation:none}.cta::before{display:none}}
+
+  /* mid-page CTA после блоков */
+  .cta-block{text-align:center;margin-top:32px}
+  .cta-block .cta{margin-top:0}
+
+  /* цена: 49,99 € и перечёркнутая 500 € на фоне */
+  /* 500€ и 49,99€ разведены, старая цена под углом — значения из index-price-tuner.html.
+     ВАЖНО: .pcap ВНЕ .price (как в тюнере), иначе 500€ считает высоту от подписи и лезет на неё. */
+  .pcap{display:block;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:3px;
+    text-transform:uppercase;color:#f0cdb0;margin-bottom:10px}
+  .pricebox{text-align:center;margin-top:8px}
+  .price{position:relative;display:inline-block;padding:20px 40px}
+  .price .old{position:absolute;left:50%;top:34%;z-index:0;
+    font-family:'Cormorant Garamond',serif;font-size:107px;font-weight:700;line-height:1;
+    transform:translate(-14%,-66%) rotate(5deg);
+    color:rgba(240,205,176,.32);text-decoration:line-through;text-decoration-color:rgba(240,205,176,.85);
+    text-decoration-thickness:4px;pointer-events:none;white-space:nowrap}
+  .price .now{position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-weight:700;color:#fff;
+    font-size:80px;line-height:1;text-shadow:0 3px 18px rgba(77,20,29,.55)}
+  .price-mini{margin-top:16px;font-family:'Cormorant Garamond',serif;font-size:25px;color:#fff}
+  .price-mini s{color:rgba(255,255,255,.55);text-decoration-color:var(--gold);margin-left:10px;font-size:19px}
+
   section{padding:52px 0}
   .section-title{text-align:center;font-size:clamp(26px,6vw,36px);color:var(--wine);margin-bottom:8px}
   .section-sub{text-align:center;color:var(--muted);max-width:520px;margin:0 auto 34px;font-size:15px}
@@ -161,8 +194,8 @@
     <p class="kicker">Мини-курс по сфера-массажу — для мастеров и косметологов</p>
     <h1>Виброкомпрессионный<br>сфера-массаж</h1>
     <p class="lead">Мини-курс, в котором объясняем методику самого популярного аппаратного массажа — от метода и безопасности до готовых протоколов тела и лица.</p>
-    <a href="https://t.me/honestbeautyacademybot" target="_blank" rel="noopener" class="cta">Записаться в лист ожидания</a>
-    <span class="cta-note">Старт — в сентябре. Первыми узнают те, кто в списке.</span>
+    <a href="https://t.me/honestbeautyacademybot" target="_blank" rel="noopener" class="cta"><span class="lbl">Записаться в лист ожидания</span></a>
+    <span class="cta-note">Старт скоро. Первыми узнают те, кто в списке.</span>
   </div>
 </header>
 
@@ -177,6 +210,7 @@
       <div class="pain"><div class="ic">❓</div><div><b>Где результат?</b><p>Клиент ходит пятый раз, а результат проявляется не так быстро. Без работы с глубокими слоями тела эффект наступает медленно, и клиент теряет мотивацию.</p></div></div>
       <div class="pain"><div class="ic">👻</div><div><b>Мастер-невидимка</b><p>Ты делаешь классно, но знают только «свои». Нет системы, чтобы выйти в статус эксперта и поднять чек.</p></div></div>
     </div>
+    <div class="cta-block"><a href="https://t.me/honestbeautyacademybot" target="_blank" rel="noopener" class="cta"><span class="lbl">Да, хочу выйти за потолок</span></a></div>
   </div>
 </section>
 
@@ -194,6 +228,7 @@
       <div class="get"><div class="num">4</div><div><b>Усиление и удержание.</b> <span>Протокол 2 — липомассаж: как усиливать эффект, совмещать методики, вести клиента курсом и грамотно продавать.</span></div></div>
       <div class="get"><div class="num">5</div><div><b>Протокол лица.</b> <span>Протокол 3 — сфера-массаж лица, шеи и декольте: деликатные зоны, направления и безопасность.</span></div></div>
     </div>
+    <div class="cta-block"><a href="https://t.me/honestbeautyacademybot" target="_blank" rel="noopener" class="cta"><span class="lbl">Хочу освоить этот метод</span></a></div>
   </div>
 </section>
 
@@ -222,11 +257,13 @@
     <div class="bonus">
       <h3>Бонусы для тебя</h3>
       <ul>
+        <li>Урок «Психология общения с клиентами»</li>
         <li>Чек-лист «Питьевой режим» для клиента</li>
         <li>Шаблон «Карта клиента + информированное согласие»</li>
         <li>Сжатый протокол сфера-массажа на 1 лист — держать у кушетки</li>
       </ul>
     </div>
+    <div class="cta-block"><a href="https://t.me/honestbeautyacademybot" target="_blank" rel="noopener" class="cta"><span class="lbl">Хочу курс со всеми бонусами</span></a></div>
   </div>
 </section>
 
@@ -254,6 +291,7 @@
         </ul>
       </div>
     </div>
+    <div class="cta-block"><a href="https://t.me/honestbeautyacademybot" target="_blank" rel="noopener" class="cta"><span class="lbl">Да, это про меня</span></a></div>
   </div>
 </section>
 
@@ -292,8 +330,10 @@
   <div class="wrap">
     <div class="eyebrow" style="text-align:center;color:#f0cdb0">Предзапись</div>
     <h2>Узнай первым, когда откроем двери</h2>
-    <p>Оставь заявку — напишем тебе лично в день старта в сентябре. Без спама, только про курс.</p>
-    <a href="https://t.me/honestbeautyacademybot" target="_blank" rel="noopener" class="cta">Оставить заявку</a>
+    <p>Оставь заявку — напишем тебе лично в день старта. Без спама, только про курс.</p>
+    <div class="pcap">Цена курса</div>
+    <div class="pricebox"><div class="price"><div class="old">500 €</div><div class="now">49,99 €</div></div></div>
+    <a href="https://t.me/honestbeautyacademybot" target="_blank" rel="noopener" class="cta"><span class="lbl">Оставить заявку</span></a>
     <span class="cta-note">Откроется бот — заполнить заявку займёт минуту</span>
   </div>
 </section>
