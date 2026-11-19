@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Отёк или возраст? Тест от косметолога · Honest Beauty Academy</title>
+<meta name="description" content="10 вопросов про лицо и тело. В конце ты узнаешь, что сейчас происходит с твоим лицом и телом, и получишь личный бьюти-план: какие процедуры помогут, как поддержать результат дома и когда лучше показаться врачу.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf6f2;--wine:#6b1f2a;--wine-deep:#4d141d;--wine-soft:#8a2c39;--cream:#fffdfb;
+--ink:#2b1a1c;--muted:#7a6a6c;--line:#ecdfd8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font:400 16px/1.55 Inter,system-ui,sans-serif}
+.wrap{max-width:560px;margin:0 auto;padding:28px 18px 48px;min-height:100svh;display:flex;flex-direction:column}
+.brand{font:600 13px Inter;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);text-align:center;margin-bottom:28px}
+h1{font:600 40px/1.08 'Cormorant Garamond',serif;color:var(--wine-deep);text-align:center;margin-bottom:16px}
+h2{font:600 28px/1.15 'Cormorant Garamond',serif;color:var(--wine-deep);margin-bottom:18px}
+p.lead{color:var(--ink);text-align:center;margin-bottom:28px}
+.btn{display:block;width:100%;border:0;border-radius:14px;background:var(--wine);color:#fff;font:600 16px Inter;
+  padding:17px 20px;text-align:center;text-decoration:none;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--wine-soft)}
+.ghost{background:none;border:0;color:var(--muted);font:500 14px Inter;margin-top:14px;cursor:pointer;width:100%}
+.bar{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:10px}
+.bar i{display:block;height:100%;background:var(--wine);width:0;transition:width .25s}
+.step{font:500 13px Inter;color:var(--muted);margin-bottom:22px}
+.opt{display:block;width:100%;text-align:left;background:var(--cream);border:1px solid var(--line);border-radius:14px;
+  padding:15px 16px;margin-bottom:10px;font:400 15.5px/1.45 Inter;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--wine-soft)}
+.opt.sel{border-color:var(--wine);background:#f6ece8}
+.card{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:22px 20px;margin-bottom:14px}
+.kick{font:600 12px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--wine);margin-bottom:6px}
+.tname{font:600 26px/1.15 'Cormorant Garamond',serif;color:var(--wine-deep);margin-bottom:10px}
+.note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:22px;line-height:1.5}
+.hide{display:none}
+.back{background:none;border:0;color:var(--muted);font:500 14px Inter;cursor:pointer;margin-top:8px;align-self:flex-start}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1104126355744797');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1104126355744797&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+</head><body><div class="wrap">
+<div class="brand">Honest Beauty Academy</div>
+
+<section id="intro">
+  <h1>Отёк или возраст? Тест от косметолога</h1>
+  <p class="lead">10 вопросов про лицо и тело. В конце ты узнаешь, что сейчас происходит с твоим лицом и телом, и получишь личный бьюти-план: какие процедуры помогут, как поддержать результат дома и когда лучше показаться врачу.</p>
+  <button class="btn" id="go">Пройти тест</button>
+  <p class="note">Тест не ставит диагноз и не заменяет очную консультацию. Если что-то беспокоит, покажись врачу.</p>
+</section>
+
+<section id="quiz" class="hide">
+  <div class="bar"><i id="prog"></i></div>
+  <div class="step" id="step"></div>
+  <h2 id="q"></h2>
+  <div id="opts"></div>
+  <button class="back" id="back">← Назад</button>
+</section>
+
+<section id="result" class="hide">
+  <div class="card">
+    <div class="kick">Лицо</div>
+    <div class="tname" id="fname"></div>
+    <p id="ftext"></p>
+  </div>
+  <div class="card">
+    <div class="kick">Тело</div>
+    <div class="tname" id="bname"></div>
+    <p>Что с этим делать дома, что можно у косметолога и когда лучше к врачу – в твоём бьюти-плане.</p>
+  </div>
+  <a class="btn" id="cta" href="#">Забрать бьюти-план в Telegram</a>
+  <button class="ghost" id="again">Пройти заново</button>
+  <p class="note">Тест не ставит диагноз и не заменяет очную консультацию. Если что-то беспокоит, покажись врачу.</p>
+</section>
+</div>
+<script>
+const D={"questions": [{"id": "q1", "part": "face", "q": "Как выглядит лицо утром, сразу после сна?", "o": [{"text": "Отёкшее: веки тяжёлые, щёки «поплыли», к обеду проходит", "type": "otek", "why": "Если к обеду лицо собирается, в тканях за ночь накопилась вода. Это отёк, и он обратим."}, {"text": "Уставшее, будто не выспалась, даже если спала 8 часов", "type": "zazhim", "why": "Усталый вид после нормального сна часто идёт от напряжения мышц и плохого кровотока, а не от недосыпа."}, {"text": "Овал уже не такой чёткий, как пару лет назад", "type": "ptoz", "why": "Мягкость овала, которая держится весь день, – первый признак потери тонуса тканей."}, {"text": "Утром и вечером одинаково: носогубки, брыли, морщины на месте", "type": "izmeneniya", "why": "Если утром и вечером одинаково, это уже не вода, а изменения в коже, мышцах и объёме."}, {"text": "Свежее, ничего особенного не замечаю", "type": "profilaktika", "why": "Свежее лицо по утрам – хороший знак: отёков и выраженных изменений нет."}]}, {"id": "q2", "part": "face", "q": "Что ты чаще всего видишь в зеркале и хочешь убрать?", "o": [{"text": "Мешки и припухлость под глазами", "type": "otek", "why": "Мешки и припухлость чаще всего про лишнюю жидкость, особенно если по утрам хуже."}, {"text": "Межбровную складку, «злой» или напряжённый взгляд", "type": "zazhim", "why": "Межбровная складка и напряжённый взгляд – про мышцы, которые не отдыхают."}, {"text": "Опущенные уголки губ, нечёткий овал", "type": "ptoz", "why": "Опущенные уголки губ и нечёткий овал – про ранние изменения тонуса."}, {"text": "Глубокие носогубные складки, брыли, морщины", "type": "izmeneniya", "why": "Глубокие складки и брыли – про потерю опоры и объёма, с этим лучше всего работают процедуры у косметолога."}, {"text": "Ничего конкретного, хочу сохранить то, что есть", "type": "profilaktika", "why": "Ничего не беспокоит – значит, задача сохранить то, что есть."}]}, {"id": "q3", "part": "face", "q": "Как ты обычно проводишь день?", "o": [{"text": "Мало пью воды днём, ужинаю поздно и солёное", "type": "otek", "why": "Мало воды днём, поздний солёный ужин – главные причины утреннего отёка."}, {"text": "Много стресса, сжимаю зубы, сижу над телефоном или ноутбуком", "type": "zazhim", "why": "Стресс, сжатые зубы и голова над телефоном держат мышцы лица и шеи в спазме."}, {"text": "Резко худела или часто меняется вес", "type": "ptoz", "why": "Резкие перепады веса сильнее всего бьют по овалу: кожа не успевает подстроиться."}, {"text": "Много солнца без SPF, курю или курила", "type": "izmeneniya", "why": "Солнце без SPF и курение быстрее всего разрушают коллаген."}, {"text": "Режим более-менее ровный", "type": "profilaktika", "why": "Ровный режим – лучшая профилактика."}]}, {"id": "q4", "part": "face", "q": "Сделай сейчас простой тест: зажми щёку пальцами и отпусти. Что происходит?", "o": [{"text": "Кожа сразу возвращается, но щека как будто «налитая»", "type": "otek", "why": "Кожа упругая, но ткани «налитые» – так выглядит отёк."}, {"text": "Возвращается быстро, но мышцы под пальцами плотные, напряжённые", "type": "zazhim", "why": "Плотные напряжённые мышцы под пальцами – признак зажимов."}, {"text": "Возвращается, но не сразу", "type": "ptoz", "why": "Кожа расправляется не сразу – упругость начинает снижаться."}, {"text": "Складка держится заметно долго", "type": "izmeneniya", "why": "Складка держится долго – кожа заметно потеряла упругость."}, {"text": "Возвращается мгновенно, ничего не замечаю", "type": "profilaktika", "why": "Мгновенно расправляется – кожа в хорошем тонусе."}]}, {"id": "q5", "part": "face", "q": "Сколько тебе лет?", "o": [{"text": "До 30", "type": "profilaktika", "why": "До 30 лет обычно хорошо работает профилактика."}, {"text": "30–38", "type": "ptoz", "why": "После 30 овал и тонус начинают меняться, и это лучшее время для поддерживающих процедур."}, {"text": "39–45", "type": "izmeneniya", "why": "После 39 изменения чаще закрепляются, поэтому возраст немного добавил баллов этому типу.", "w": 1}, {"text": "46 и больше", "type": "izmeneniya", "why": "После 46 возраст сильнее повлиял на результат: изменения в тканях почти всегда уже есть.", "w": 2}]}, {"id": "q6", "part": "face", "q": "Что тебе важнее всего изменить в лице?", "tie_break": true, "o": [{"text": "Перестать отекать по утрам", "type": "otek", "why": "Ты хочешь убрать утренний отёк – это решает результат при равенстве баллов."}, {"text": "Расслабить лицо, убрать усталый вид", "type": "zazhim", "why": "Ты хочешь расслабить лицо – план начинается со снятия зажимов."}, {"text": "Подтянуть овал, пока изменения небольшие", "type": "ptoz", "why": "Ты хочешь подтянуть овал, пока изменения небольшие, – план про тонус."}, {"text": "Заметно освежить лицо", "type": "izmeneniya", "why": "Ты хочешь заметно освежить лицо – план про процедуры, которые возвращают опору."}, {"text": "Как можно дольше сохранить то, что есть", "type": "profilaktika", "why": "Ты хочешь сохранить то, что есть, – план про профилактику."}]}, {"id": "q7", "part": "body", "q": "Что тебя больше всего беспокоит в теле?", "o": [{"text": "Ноги тяжёлые и отекают к вечеру", "type": "voda", "why": "Тяжёлые ноги к вечеру – частый признак задержки жидкости."}, {"text": "Отдельные зоны: живот, бока, «ушки» на бёдрах", "type": "zhir", "why": "Отдельные зоны, которые не уходят, – про локальные жировые отложения."}, {"text": "Кожа стала дряблой после родов или похудения", "type": "tonus", "why": "Дряблость после родов или похудения – про потерю тонуса кожи и мышц."}, {"text": "Особо ничего, хочу держать форму", "type": "norma", "why": "Ничего не беспокоит – задача держать форму."}]}, {"id": "q8", "part": "body", "q": "Нажми пальцем на голень на 5 секунд. Что остаётся?", "o": [{"text": "Ямка, которая держится несколько секунд", "type": "voda", "why": "Ямка после нажатия держится – в тканях есть лишняя жидкость."}, {"text": "Ничего, зона плотная", "type": "zhir", "why": "Плотная зона без ямки – это скорее жир, а не вода."}, {"text": "Ничего, но кожа мягкая и «тянется»", "type": "tonus", "why": "Мягкая «тянущаяся» кожа – признак потери тонуса."}, {"text": "Ничего не остаётся", "type": "norma", "why": "Ничего не остаётся – отёчности нет."}]}, {"id": "q9", "part": "body", "q": "Как меняется тело в течение дня и месяца?", "o": [{"text": "Вечером объёмы больше, чем утром, джинсы давят", "type": "voda", "why": "Если вечером объёмы больше, чем утром, меняется вода, а не жир."}, {"text": "Объёмы одни и те же, зоны не уходят даже на диете", "type": "zhir", "why": "Объёмы стабильные и не уходят на диете – так ведут себя жировые зоны."}, {"text": "Вес нормальный, но тело «поплыло», нет упругости", "type": "tonus", "why": "Нормальный вес, но нет упругости – тело потеряло тонус."}, {"text": "Почти не меняется", "type": "norma", "why": "Тело почти не меняется – хорошая форма."}]}, {"id": "q10", "part": "body", "q": "Чего ты хочешь от тела в первую очередь?", "tie_break": true, "o": [{"text": "Лёгкости в ногах, чтобы ушла отёчность", "type": "voda", "why": "Твоя цель – лёгкость в ногах: при равенстве баллов план начинается с дренажа."}, {"text": "Уменьшить конкретные зоны", "type": "zhir", "why": "Твоя цель – уменьшить зоны: план про работу с локальным жиром."}, {"text": "Вернуть упругость коже", "type": "tonus", "why": "Твоя цель – упругость: план про тонус кожи и мышц."}, {"text": "Поддерживать то, что есть, без сложных ритуалов", "type": "norma", "why": "Твоя цель – поддержка: простой план без сложных ритуалов."}]}], "tie_order": {"face": ["otek", "zazhim", "ptoz", "izmeneniya", "profilaktika"], "body": ["voda", "tonus", "zhir", "norma"]}, "face": {"otek": {"name": "Отёчное лицо", "site": "Твоё лицо в первую очередь отекает. Это хорошая новость: отёк обратим, и с ним отлично работает дренажный массаж у специалиста. В бьюти-плане – что поможет в кабинете и как поддержать результат дома."}, "zazhim": {"name": "Лицо в напряжении", "site": "Твоему лицу больше всего мешает напряжение: зажатые мышцы, стресс, сжатая челюсть. Отсюда усталый вид и складки. В бьюти-плане – что снимет зажимы в кабинете и что поможет дома."}, "ptoz": {"name": "Ранние изменения овала", "site": "У тебя начинают меняться овал и тонус тканей. Изменения пока небольшие, и сейчас лучшее время ими заняться. В бьюти-плане – какие процедуры поддержат тонус и что делать дома между ними."}, "izmeneniya": {"name": "Закрепившиеся возрастные изменения", "site": "Изменения у тебя уже закрепились: складки и овал одинаковы утром и вечером. Здесь главную работу делают процедуры у косметолога. В бьюти-плане – честно, что поможет в кабинете, а что поддержит результат дома."}, "profilaktika": {"name": "Профилактика", "site": "С лицом у тебя всё спокойно, и это лучшее время для профилактики. В бьюти-плане – простой минимум, который сохранит лицо надолго."}}, "body": {"voda": {"name": "Тело держит воду"}, "zhir": {"name": "Локальные жировые зоны"}, "tonus": {"name": "Тело потеряло тонус"}, "norma": {"name": "Тело в хорошей форме"}}, "bot": "https://t.me/honestbeautyacademybot?start="};
+const Q=D.questions; let i=0; const ans=new Array(Q.length).fill(null);
+const $=id=>document.getElementById(id);
+function show(id){for(const s of ['intro','quiz','result'])$(s).classList.toggle('hide',s!==id);window.scrollTo(0,0)}
+function render(){
+  const q=Q[i];
+  $('prog').style.width=(i/Q.length*100)+'%';
+  $('step').textContent=`Вопрос ${i+1} из ${Q.length} · ${q.part==='face'?'лицо':'тело'}`;
+  $('q').textContent=q.q;
+  const box=$('opts'); box.innerHTML='';
+  q.o.forEach((o,k)=>{const b=document.createElement('button');b.className='opt'+(ans[i]===k?' sel':'');
+    b.textContent=o.text;b.onclick=()=>pick(k);box.appendChild(b)});
+  $('back').style.visibility=i?'visible':'hidden';
+}
+function pick(k){ans[i]=k; if(i<Q.length-1){i++;render()} else finish()}
+function winner(part,tieQ){
+  const pts={};
+  Q.forEach((q,n)=>{if(q.part!==part||ans[n]===null)return;const o=q.o[ans[n]];pts[o.type]=(pts[o.type]||0)+(o.w||1)});
+  const max=Math.max(0,...Object.values(pts));
+  let tied=D.tie_order[part].filter(t=>(pts[t]||0)===max);
+  if(tied.length>1){const n=Q.findIndex(q=>q.id===tieQ);const t=n>=0&&ans[n]!==null?Q[n].o[ans[n]].type:null;
+    if(t&&tied.includes(t))return t}
+  return tied[0];
+}
+function finish(){
+  const f=winner('face','q6'), b=winner('body','q10');
+  $('fname').textContent=D.face[f].name; $('ftext').textContent=D.face[f].site;
+  $('bname').textContent=D.body[b].name;
+  $('cta').href=D.bot+'quiz_'+f+'_'+b+'_'+ans.map(a=>a===null?'x':a).join('');
+  show('result');
+  if(window.fbq)fbq('track','ViewContent',{content_name:'quiz_result',content_category:f+'_'+b});
+}
+$('go').onclick=()=>{i=0;ans.fill(null);show('quiz');render()};
+$('back').onclick=()=>{if(i>0){i--;render()}};
+$('again').onclick=()=>{i=0;ans.fill(null);show('intro')};
+$('cta').addEventListener('click',()=>{if(window.fbq)fbq('track','Lead',{content_name:'quiz_to_bot'})});
+</script>
+</body></html>
